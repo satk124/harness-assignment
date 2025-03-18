@@ -3,3 +3,22 @@ service:
   identifier: GuestbookService
   orgIdentifier: default
   projectIdentifier: default_project
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: prod_service_guestbook
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: githubguestbookdemo
+                  gitFetchType: Branch
+                  paths:
+                    - kubernetes/prod/deployment.yaml
+                    - kubernetes/prod/service.yaml
+                  branch: main
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
