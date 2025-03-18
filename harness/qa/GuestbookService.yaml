@@ -18,7 +18,7 @@ service:
                   paths:
                     - kubernetes/prod/deployment.yaml
                     - kubernetes/prod/service.yaml
-                  branch: master
+                  branch: main
               skipResourceVersioning: false
               enableDeclarativeRollback: false
     type: Kubernetes
