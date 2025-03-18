@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: prod-infra
+  identifier: prodinfra
+  orgIdentifier: default
+  projectIdentifier: default_project
+  environmentRef: PROD
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: ownappk8sconnector
+    namespace: harness-delegate-ng
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
