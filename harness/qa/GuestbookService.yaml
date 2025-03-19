@@ -21,4 +21,27 @@ service:
                   branch: main
               skipResourceVersioning: false
               enableDeclarativeRollback: false
+        - manifest:
+            identifier: prod_guestbook_values
+            type: Values
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: githubguestbookdemo
+                  gitFetchType: Branch
+                  paths:
+                    - kubernetes/prod/values.yaml
+                  branch: main
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: dockerregistry
+                imagePath: <+pipeline.variables.image>
+                tag: <+pipeline.variables.tag>
+                digest: ""
+              identifier: prod_guestbook_artifact_source_identifire
+              type: DockerRegistry
     type: Kubernetes
