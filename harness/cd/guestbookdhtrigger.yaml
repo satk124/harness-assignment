@@ -1,0 +1,27 @@
+inputSet:
+  name: Default Input Set
+  identifier: Default_Input_Set
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Guest_Book_CD_Pipeline
+    stages:
+      - stage:
+          identifier: deployqa
+          type: Deployment
+          spec:
+            service:
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: prod_guestbook_artifact_source_identifire
+    variables:
+      - name: image
+        type: String
+        value: satk124/ks-guestbook-demo
+      - name: tag
+        type: String
+        value: "1.4"
