@@ -1,5 +1,5 @@
 service:
-  name: Guestbook-Service
+  name: PROD-Guestbook-Service
   identifier: GuestbookService
   orgIdentifier: default
   projectIdentifier: default_project
