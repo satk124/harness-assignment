@@ -124,18 +124,13 @@ pipeline:
               action:
                 type: StageRollback
   variables:
-    - name: primaryArtifact
-      type: String
-      description: ""
-      required: false
-      value: <+input>
     - name: image
       type: String
       description: Docker Image to Deploy
       required: false
-      value: <+eventPayload.artifact.imagePath>
+      value: <+input>
     - name: tag
       type: String
       description: ""
       required: false
-      value: <+eventPayload.artifact.tag>
+      value: <+input>
